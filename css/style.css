@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: rgb(192, 168, 145);
+    background: linear-gradient(to bottom, rgb(78, 76, 73), #fff);
+    background-repeat: no-repeat;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #ffffffee;
+}
+
+/* .grid-container-btns {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 15px;
+    gap: 10px;
+    
+} */
+
+.big-btn {
+    width: 400px;
+} 
+/* Works but I can't get it to be responsive though lol T_T */
+
+/* .d-grid */
+
+/* .ombre-background {
+    background: linear-gradient(to bottom, rgb(167, 133, 99), #fff);
+} */
