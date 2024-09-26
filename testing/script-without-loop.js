@@ -3,33 +3,26 @@ const expenseButton = document.querySelector('#expense-button');
 
 const addExpense = function () {
 
-    let isRunning = true;
+    // let isRunning = true;
     const expenseArray = [];
 
-    while (isRunning) {
-        const categoryInput = document.querySelector('#category-input').value;
-        const amountInput = document.querySelector('#amount-input').value;
-        const dateInput = document.querySelector('#date-input').value;
-        const expenseObject = {
-            category: categoryInput,
-            amount: amountInput,
-            date: dateInput,
-        }
-
-        expenseArray.push(expenseObject);
-        isRunning = confirm('Do you want to add another expense?');
+    // while (isRunning) {
+    const categoryInput = document.querySelector('#category-input').value;
+    const amountInput = document.querySelector('#amount-input').value;
+    const dateInput = document.querySelector('#date-input').value;
+    const expenseObject = {
+        category: categoryInput,
+        amount: amountInput,
+        date: dateInput,
     }
+
+    expenseArray.push(expenseObject);
+    // isRunning = confirm('Do you want to add another expense?');
     console.table(expenseArray);
     return expenseArray;
-    
-
-};
+}
 
 
-
-
-
-// TODO needing to intermittently click cancel twice. addExpense function called twice, requiring you exiting to exit the loop twice?
 function initialize() {
     expenseButton.addEventListener('click', addExpense);
     expenseForm.addEventListener('submit', addExpense);
@@ -39,7 +32,6 @@ function initialize() {
 }
 
 initialize();
-
 
 // create a function that pulls the expenses array from local storage
 // this function should return a parsed array of the local storage data; or if that data has not been stored, then return an empty array 
