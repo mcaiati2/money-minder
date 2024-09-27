@@ -26,98 +26,51 @@ As a result, emptyArray will be an array containing the storedExpenses, or an em
 
 The value of expenseArray will be stored with the key named 'storedExpenses'
 */
-let expenseArray = [];
-
-function expenseButtonRepeats() {
-    // run modal when button clicked
-    // run it again if the user says yes, I'll add another expense 
-    let addExpenseLoopSwitch = true;
-    while (addExpenseLoopSwitch) {
-        addExpense();
-
-        addExpenseLoopSwitch = confirm('Would you like to add another expense?');
-    }
-    return expenseArray;
-}
-
-// adds an event listener to the expenseButton button that calls the addExpense function when clicked
-expenseButton.addEventListener('click', expenseButtonRepeats);
-
 
 
 // defines a function named addExpense that will be executed WHEN CALLED
-// just stores one object 
 function addExpense() {
-        // Update the expense array so we don't lose anything from memory
-        expenseArray = JSON.parse(localStorage.getItem('storedExpenses')) || [];
-        // get ready to collect data - declare our variables for collecting with 
-        let categoryInput = document.querySelector('#category-input').value;
-        let amountInput = parseFloat(document.querySelector('#amount-input').value);
-        let dateInput = document.querySelector('#date-input').value;
-        // declare object with what the user puts into the modal (called in html?):
-        const expenseObject = {
-            category: categoryInput,
-            amount: amountInput,
-            date: dateInput,
-        };
-        // add object to array
-        expenseArray.push(expenseObject);
-        // commit to storage 
-        localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
-        // Creates a console log showing the object info
-        console.log('New expense added! Here are the details: ', expenseObject);
 
-        return expenseArray
-    }
+    let expenseArray = JSON.parse(localStorage.getItem('storedExpenses')) || [];
 
-    // adds an event listener to the expenseForm that calls the addExpense function when the form is submitted
-    expenseForm.addEventListener('submit', addExpense);
+    // these 3 select the related HTML elements, retrieve their values, and store them in the variables categoryInput, amountInput, dateInput.
+    const categoryInput = document.querySelector('#category-input').value;
 
-    // initilizes a jQuery date picker on the element with the the ID date-input.
-    $('#date-input').datepicker();
+    // parseFloat is more useful than parseInt for our app because it can handle decimals.
+    const amountInput = parseFloat(document.querySelector('#amount-input').value);
 
+    const dateInput = document.querySelector('#date-input').value;
 
+    // object literal block. creates an object expenseObject with category, amount, and date properties and assigns the user's input to those values
+    const expenseObject = {
+        category: categoryInput,
+        amount: amountInput,
+        date: dateInput,
+    };
 
-    /*
-    Line 67 - localStorage (same global object we referenced outside the function, more info on lines 14 - 16)
+    expenseArray.push(expenseObject);
 
-    .setItem(); method adding a key:value pair to localStorage object
+    localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
 
-    takes two arguments: the key (string) and the value (also a string). in this case, we converted the amount to an number with parseFloat() so that we can handle decimal points.
+    // Creates a console log showing the property:value pairs of the expenseObject that was just created.
+    console.log('New expense added! Here are the details: ', expenseObject);
+    displayExpense(expenseArray);
 
-    storedExpenses is the key we used above to store the data in local storage (keys are unique- if we use the same key again, it will overwrite the value)
-
-    JSON.stringify() is a method that converts a JS object or array into a JSON string
-
-    expenseArray is the array we are storing in localStorage - we have to use the JSON.stringify() method BEFORE storing it since it's an array since localStorage can ONLY store strings
-    */
-
-
-
-
-
-// nina's attempt 
-const displayExpense = function(expenseArray) {
-
+    return expenseArray;
 }
+expenseButton.addEventListener('click', addExpense);
 
 
-
-
-
-
-
-/*
-EVENT LISTENERS 
+/* EVENT LISTENERS */
 
 // defines a function named 'initialize', which is executed when called
 function initialize() {
 
     // adds an event listener to the expenseButton button that calls the addExpense function when clicked
-    expenseButton.addEventListener('click', addExpense);
+    // expenseButton.addEventListener('click', addExpense);
 
     // adds an event listener to the expenseForm that calls the addExpense function when the form is submitted
-    expenseForm.addEventListener('submit', addExpense);
+    // expenseForm.addEventListener('submit', addExpense);
 
     // initilizes a jQuery date picker on the element with the the ID date-input.
     $('#date-input').datepicker();
@@ -129,4 +82,44 @@ initialize();
 
 
 // TODO - do we define line 30 outside the addExpense function? 
-*/
+
+// Table 
+const displayExpense = function(expenseArray) {
+    // Get the employee table
+    const expenseTable = document.querySelector('#expense-table');
+  
+    // Clear the employee table
+    expenseTable.innerHTML = '';
+  
+    // Loop through the employee data and create a row for each employee
+    for (let i = 0; i < expenseArray.length; i++) {
+      const currentExpense = expenseArray[i];
+      // Create new table row:
+      const newTableRow = document.createElement("tr");
+      newTableRow.append(dateCell);
+
+
+      // create new table data elements for 3 pieces of info stored in object (currentEmployee, in this case) and these will display left to right:
+      const amountCell = document.createElement("td");
+      // Format the salary as currency
+      amountCell.textContent = currentExpense.amount.toLocaleString("en-US",{
+        style:"currency",
+        currency:"USD"
+      });
+      newTableRow.append(amountCell);
+
+      // --
+
+      const descriptionCell = document.createElement("td");
+      descriptionCell.textContent = currentExpense.description;
+      newTableRow.append(descriptionCell);
+
+      // --
+
+      const dateCell = document.createElement("td");
+      dateCell.textContent = currentExpense.date;
+      newTableRow.append(dateCell);
+  
+      expenseTable.append(newTableRow);
+    }
+  }

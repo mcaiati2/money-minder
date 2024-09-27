@@ -31,56 +31,51 @@
         <section class="row p-2 p-sm-3 px-lg-5 g-3">
             <!-- made 12 columns, so maing each button 6 will make 2 on a row -->
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#expense-modal">
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="#expense-modal">
                     Add Expense
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#expense-modal">
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="#expense-modal">
                     Current Statement
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#expense-modal">
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="#expense-modal">
                     Expenses by category
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#expense-modal">
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="#expense-modal">
                     Annual Expenses
                 </button>
             </div>
 
         </section>
         <section>
-            <div></div>
+            <div>
+                <!-- THE TABLE -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cost</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-table">
+                        <!-- Info will be injected here -->
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 
-    <table>
-        <thead>
-          <tr>
-            <th>Month</th>
-            <th>Savings</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>January</td>
-            <td>$100</td>
-          </tr>
-          <tr>
-            <td>February</td>
-            <td>$80</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>Sum</td>
-            <td>$180</td>
-          </tr>
-        </tfoot>
-      </table>
+
     <footer>
         <!-- remember a footer -->
     </footer>
