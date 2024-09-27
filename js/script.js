@@ -1,5 +1,6 @@
 const expenseForm = document.querySelector('#expense-form');
 const expenseButton = document.querySelector('#expense-button');
+// const dropdownBtn = document.querySelector('#dropdown-button')
 
 function addExpense() {
 
@@ -20,10 +21,28 @@ function addExpense() {
     expenseArray.push(expenseObject);
 
     localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
+    showTable();
 
-    //
-    // START Mike's new code 9-26
+    console.log('New expense added! Here are the details: ', expenseObject);
+    
+}
 
+
+// function collectMaxBalanceAmount() {
+//     let balanceAmount = JSON.parse(localStorage.getItem('storedBalance')) || [];
+//     const balanceInput = document.querySelector('#balance-input').value;
+
+//     localStorage.setItem('storedBalance', JSON.stringify(balanceAmount));
+
+//     console.log('This the balance amount you set: ')
+
+// }
+
+
+function showTable() {
+
+
+    let storedExpenses = JSON.parse(localStorage.getItem('storedExpenses')) || [];
     // declares a variable named 'expenseTable' and assigns the value to the first element with the #expense-table class.
     const expenseTable = document.querySelector('#expense-table');
 
@@ -31,38 +50,94 @@ function addExpense() {
     expenseTable.innerHTML = '';
 
     // this starts a for each loop that iterates over each expense item in the array. the forEach method executes the provided function one time for every element in the array.
-    expenseArray.forEach(expense => {
+    storedExpenses.forEach(function() {
 
-        // creates a string of HTML for the current expense and assigns the result back to the variable expenseHTML.
-        const expenseHTML = `
-        <div class="expense-table-item">
-            <p>Category: ${expense.category}</p>
-            <p>Amount: $${expense.amount}</p>
-            <p>Date: ${expense.date}</p>
-        </div>
-        `;
+        //creates a string of HTML for the current expense and assigns the result back to the variable expenseHTML.
+        // Create new table row:
+      const newTableRow = document.createElement("tr");
+
+
+      // create new table data elements for 3 pieces of info stored in object (storedExpenses, in this case) and these will display left to right:
+      const amountCell = document.createElement("td");
+      // Format the salary as currency
+      amountCell.textContent = storedExpenses.amount;
+      newTableRow.append(amountCell);
+
+      // --
+
+      const descriptionCell = document.createElement("td");
+      descriptionCell.textContent = storedExpenses.description;
+      newTableRow.append(descriptionCell);
+
+      // --
+
+      const dateCell = document.createElement("td");
+      dateCell.textContent = storedExpenses.date;
+      newTableRow.append(dateCell);
+  
+      expenseTable.append(newTableRow);
 
         // injects the HTML created above into the element named expenseTable that we declared at the top of the section. beforeend adds the HTML to the end of the existing table.
-        expenseTable.insertAdjacentHTML('beforeend', expenseHTML);
     });
+    console.log('These are the current stored expenses:', storedExpenses);
 
-    // END Mike's New Code 9-26
-    // 
-
-    console.log('New expense added! Here are the details: ', expenseObject);
 }
+
 
 
 /* EVENT LISTENERS */
 
 function initialize() {
-
+    // dropdownBtn.addEventListener('click', );
     expenseButton.addEventListener('click', addExpense);
     expenseForm.addEventListener('submit', addExpense);
     $('#date-input').datepicker();
+    showTable();
 
 }
 
 initialize();
 
 
+
+
+// // ------------------------------------------------------------------------------
+// // Table function 
+// const displayExpense = function(expenseArray) {
+//     // Get the employee table
+//     const expenseTable = document.querySelector('#expense-table');
+  
+//     // Clear the employee table
+//     expenseTable.innerHTML = '';
+  
+//     // Loop through the employee data and create a row for each employee
+//     for (let i = 0; i < expenseArray.length; i++) {
+//       const currentExpense = expenseArray[i];
+//       // Create new table row:
+//       const newTableRow = document.createElement("tr");
+
+
+//       // create new table data elements for 3 pieces of info stored in object (currentEmployee, in this case) and these will display left to right:
+//       const amountCell = document.createElement("td");
+//       // Format the salary as currency
+//       amountCell.textContent = currentExpense.amount.toLocaleString("en-US",{
+//         style:"currency",
+//         currency:"USD"
+//       });
+//       newTableRow.append(amountCell);
+
+//       // --
+
+//       const descriptionCell = document.createElement("td");
+//       descriptionCell.textContent = currentExpense.description;
+//       newTableRow.append(descriptionCell);
+
+//       // --
+
+//       const dateCell = document.createElement("td");
+//       dateCell.textContent = currentExpense.date;
+//       newTableRow.append(dateCell);
+  
+//       expenseTable.append(newTableRow);
+//     }
+//   }
