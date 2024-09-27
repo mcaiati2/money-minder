@@ -51,6 +51,7 @@ function addExpense() {
     // adds the expenseObject to the expenseArray
     expenseArray.push(expenseObject);
 
+
     /*
     Line 67 - localStorage (same global object we referenced outside the function, more info on lines 14 - 16)
 
@@ -66,6 +67,36 @@ function addExpense() {
     */
 
     localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
+
+    //
+    // Mike's new code 9-26
+
+    // declares a variable named 'expenseTable' and assigns the value to the first element with the #expense-table class.
+    const expenseTable = document.querySelector('#expense-table');
+
+    // clears any existing content inside the expenseTable element by setting its innerHTML property to an empty string - ensures that the table is empty before any new content is added.
+    expenseTable.innerHTML = '';
+
+    // this starts a for each loop that iterates over each expense item in the array. the forEach method executes the provided function one time for every element in the array.
+    expenseArray.forEach(expense => {
+
+        // creates a string of HTML for the current expense and assigns the result back to the variable expenseHTML.
+        const expenseHTML = `
+        <div class="expense-table-item">
+            <p>Category: ${expense.category}</p>
+            <p>Amount: $${expense.amount}</p>
+            <p>Date: ${expense.date}</p>
+        </div>
+        `;
+
+        // injects the HTML created above into the element named expenseTable that we declared at the top of the section. beforeend adds the HTML to the end of the existing table.
+        expenseTable.insertAdjacentHTML('beforeend', expenseHTML);
+    });
+
+    // END NEW CODE MIKE
+    // 
+
+
 
     // Creates a console log showing the property:value pairs of the expenseObject that was just created.
     console.log('New expense added! Here are the details: ', expenseObject);
@@ -92,4 +123,3 @@ function initialize() {
 initialize();
 
 
-// TODO - do we define line 30 outside the addExpense function? 

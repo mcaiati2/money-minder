@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../homework/js_employee_payroll_tracker"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../../temp-notebook"
+		},
+		{
+			"path": "../../compehensive_notebook"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "money-minder"
+	}
+}
