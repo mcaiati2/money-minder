@@ -34,3 +34,18 @@ body {
     background: linear-gradient(to bottom, rgb(167, 133, 99), #fff);
 } */
 
+table {
+    width:75%;
+    justify-content: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  td{
+    text-align: center;
+    border:4px solid black;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: hsl(223, 64%, 90%);
+  }
