@@ -26,30 +26,57 @@ As a result, emptyArray will be an array containing the storedExpenses, or an em
 
 The value of expenseArray will be stored with the key named 'storedExpenses'
 */
+let expenseArray = [];
+
+function expenseButtonRepeats() {
+    // run modal when button clicked
+    // run it again if the user says yes, I'll add another expense 
+    let addExpenseLoopSwitch = true;
+    while (addExpenseLoopSwitch) {
+        addExpense();
+
+        addExpenseLoopSwitch = confirm('Would you like to add another expense?');
+    }
+    return expenseArray;
+}
+
+// adds an event listener to the expenseButton button that calls the addExpense function when clicked
+expenseButton.addEventListener('click', expenseButtonRepeats);
+
 
 
 // defines a function named addExpense that will be executed WHEN CALLED
+// just stores one object 
 function addExpense() {
+        // Update the expense array so we don't lose anything from memory
+        expenseArray = JSON.parse(localStorage.getItem('storedExpenses')) || [];
+        // get ready to collect data - declare our variables for collecting with 
+        let categoryInput = document.querySelector('#category-input').value;
+        let amountInput = parseFloat(document.querySelector('#amount-input').value);
+        let dateInput = document.querySelector('#date-input').value;
+        // declare object with what the user puts into the modal (called in html?):
+        const expenseObject = {
+            category: categoryInput,
+            amount: amountInput,
+            date: dateInput,
+        };
+        // add object to array
+        expenseArray.push(expenseObject);
+        // commit to storage 
+        localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
+        // Creates a console log showing the object info
+        console.log('New expense added! Here are the details: ', expenseObject);
 
-    let expenseArray = JSON.parse(localStorage.getItem('storedExpenses')) || [];
+        return expenseArray
+    }
 
-    // these 3 select the related HTML elements, retrieve their values, and store them in the variables categoryInput, amountInput, dateInput.
-    const categoryInput = document.querySelector('#category-input').value;
+    // adds an event listener to the expenseForm that calls the addExpense function when the form is submitted
+    expenseForm.addEventListener('submit', addExpense);
 
-    // parseFloat is more useful than parseInt for our app because it can handle decimals.
-    const amountInput = parseFloat(document.querySelector('#amount-input').value);
+    // initilizes a jQuery date picker on the element with the the ID date-input.
+    $('#date-input').datepicker();
 
-    const dateInput = document.querySelector('#date-input').value;
 
-    // object literal block. creates an object expenseObject with category, amount, and date properties and assigns the user's input to those values
-    const expenseObject = {
-        category: categoryInput,
-        amount: amountInput,
-        date: dateInput,
-    };
-
-    // adds the expenseObject to the expenseArray
-    expenseArray.push(expenseObject);
 
     /*
     Line 67 - localStorage (same global object we referenced outside the function, more info on lines 14 - 16)
@@ -65,14 +92,23 @@ function addExpense() {
     expenseArray is the array we are storing in localStorage - we have to use the JSON.stringify() method BEFORE storing it since it's an array since localStorage can ONLY store strings
     */
 
-    localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
 
-    // Creates a console log showing the property:value pairs of the expenseObject that was just created.
-    console.log('New expense added! Here are the details: ', expenseObject);
+
+
+
+// nina's attempt 
+const displayExpense = function(expenseArray) {
+
 }
 
 
-/* EVENT LISTENERS */
+
+
+
+
+
+/*
+EVENT LISTENERS 
 
 // defines a function named 'initialize', which is executed when called
 function initialize() {
@@ -93,3 +129,4 @@ initialize();
 
 
 // TODO - do we define line 30 outside the addExpense function? 
+*/
