@@ -17,7 +17,7 @@
             <!-- NEED LOGO PNG HERE -->
             <div><img src="./images/mm-logo-v2.png" width="100" alt=""></div>
             <div class="dropdown">
-                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdown-button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Action</a>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-6 d-flex px-lg-5">
                 <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#expense-modal">
-                    Set Up Your Monthly Limits
+                    Adjust Monthly Limit
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
@@ -56,6 +56,32 @@
             <div></div>
         </section>
     </main>
+
+    <!-- MIKE'S TESTING 9-26 >  -->
+    <aside>
+        <h3>Expense List</h3>
+        <div id="expense-table"></div> 
+    </aside>
+    <!-- END OF MIKE'S TESTING9-26 -->
+     
+    <section>
+        <div>
+            <!-- THE TABLE -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cost</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-table">
+                    <!-- Info will be injected here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <footer>
         <!-- remember a footer -->
     </footer>

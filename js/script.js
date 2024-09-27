@@ -55,7 +55,11 @@ function addExpense(event) {
         let continueAsking = confirm('Add another expense?');
         if (!continueAsking) {
             keepAsking = false;
-        
+        } else {
+            // Clear the form fields for the next input
+            document.querySelector('#category-input').value = '';
+            document.querySelector('#amount-input').value = '';
+            document.querySelector('#date-input').value = '';
         }
 
     }
@@ -108,6 +112,14 @@ function initialize() {
     $('#date-input').datepicker();
 
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize all dropdowns
+    var dropdownElements = document.querySelectorAll('.dropdown-toggle');
+    dropdownElements.forEach(function (dropdown) {
+        new bootstrap.Dropdown(dropdown);
+    });
+});
 
 // call the initilize function to set up the event listeners and date picker when the script runs
 initialize();
