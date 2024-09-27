@@ -29,47 +29,68 @@ The value of expenseArray will be stored with the key named 'storedExpenses'
 
 
 // defines a function named addExpense that will be executed WHEN CALLED
-function addExpense() {
+function addExpense(event) {
+
+    event.preventDefault();
+
+    const expenseList = [];
+
+    let keepAsking = true;
+    while (keepAsking) {
+        // these 3 select the related HTML elements, retrieve their values, and store them in the variables categoryInput, amountInput, dateInput.
+        const categoryInput = document.querySelector('#category-input').value;
+
+        // parseFloat is more useful than parseInt for our app because it can handle decimals.
+        const amountInput = parseFloat(document.querySelector('#amount-input').value);
+
+        const dateInput = document.querySelector('#date-input').value;
+
+        const expenseObject = {
+            category: categoryInput,
+            amount: amountInput,
+            date: dateInput,
+        };
+        expenseList.push(expenseObject);
+
+        let continueAsking = confirm('Add another expense?');
+        if (!continueAsking) {
+            keepAsking = false;
+        
+        }
+
+    }
+
 
     let expenseArray = JSON.parse(localStorage.getItem('storedExpenses')) || [];
-
-    // these 3 select the related HTML elements, retrieve their values, and store them in the variables categoryInput, amountInput, dateInput.
-    const categoryInput = document.querySelector('#category-input').value;
-
-    // parseFloat is more useful than parseInt for our app because it can handle decimals.
-    const amountInput = parseFloat(document.querySelector('#amount-input').value);
-
-    const dateInput = document.querySelector('#date-input').value;
-
-    // object literal block. creates an object expenseObject with category, amount, and date properties and assigns the user's input to those values
-    const expenseObject = {
-        category: categoryInput,
-        amount: amountInput,
-        date: dateInput,
-    };
-
-    // adds the expenseObject to the expenseArray
-    expenseArray.push(expenseObject);
-
-    /*
-    Line 67 - localStorage (same global object we referenced outside the function, more info on lines 14 - 16)
-
-    .setItem(); method adding a key:value pair to localStorage object
-
-    takes two arguments: the key (string) and the value (also a string). in this case, we converted the amount to an number with parseFloat() so that we can handle decimal points.
-
-    storedExpenses is the key we used above to store the data in local storage (keys are unique- if we use the same key again, it will overwrite the value)
-
-    JSON.stringify() is a method that converts a JS object or array into a JSON string
-
-    expenseArray is the array we are storing in localStorage - we have to use the JSON.stringify() method BEFORE storing it since it's an array since localStorage can ONLY store strings
-    */
-
+    expenseArray = expenseArray.concat(expenseList);
     localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
+};
 
-    // Creates a console log showing the property:value pairs of the expenseObject that was just created.
-    console.log('New expense added! Here are the details: ', expenseObject);
-}
+// object literal block. creates an object expenseObject with category, amount, and date properties and assigns the user's input to those values
+
+
+
+// adds the expenseObject to the expenseArray
+
+/*
+Line 67 - localStorage (same global object we referenced outside the function, more info on lines 14 - 16)
+
+.setItem(); method adding a key:value pair to localStorage object
+
+takes two arguments: the key (string) and the value (also a string). in this case, we converted the amount to an number with parseFloat() so that we can handle decimal points.
+
+storedExpenses is the key we used above to store the data in local storage (keys are unique- if we use the same key again, it will overwrite the value)
+
+JSON.stringify() is a method that converts a JS object or array into a JSON string
+
+expenseArray is the array we are storing in localStorage - we have to use the JSON.stringify() method BEFORE storing it since it's an array since localStorage can ONLY store strings
+*/
+
+// localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
+
+// // Creates a console log showing the property:value pairs of the expenseObject that was just created.
+// console.log('New expense added! Here are the details: ', expenseObject);
+
 
 
 /* EVENT LISTENERS */
