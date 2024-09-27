@@ -2,9 +2,13 @@ const expenseForm = document.querySelector('#expense-form');
 const expenseButton = document.querySelector('#expense-button');
 // const dropdownBtn = document.querySelector('#dropdown-button')
 
+function getExpenses(){
+    return JSON.parse(localStorage.getItem('storedExpenses')) || [];
+}
+
 function addExpense() {
 
-    let expenseArray = JSON.parse(localStorage.getItem('storedExpenses')) || [];
+    let expenseArray = getExpenses();
 
     const categoryInput = document.querySelector('#category-input').value;
 
@@ -39,10 +43,10 @@ function addExpense() {
 // }
 
 
+
 function showTable() {
 
-
-    let storedExpenses = JSON.parse(localStorage.getItem('storedExpenses')) || [];
+    let storedExpenses = getExpenses();
     // declares a variable named 'expenseTable' and assigns the value to the first element with the #expense-table class.
     const expenseTable = document.querySelector('#expense-table');
 
@@ -50,29 +54,26 @@ function showTable() {
     expenseTable.innerHTML = '';
 
     // this starts a for each loop that iterates over each expense item in the array. the forEach method executes the provided function one time for every element in the array.
-    storedExpenses.forEach(function() {
-
-        //creates a string of HTML for the current expense and assigns the result back to the variable expenseHTML.
+    storedExpenses.forEach(function(expense) {
         // Create new table row:
       const newTableRow = document.createElement("tr");
-
 
       // create new table data elements for 3 pieces of info stored in object (storedExpenses, in this case) and these will display left to right:
       const amountCell = document.createElement("td");
       // Format the salary as currency
-      amountCell.textContent = storedExpenses.amount;
+      amountCell.textContent = expense.amount;
       newTableRow.append(amountCell);
 
       // --
 
-      const descriptionCell = document.createElement("td");
-      descriptionCell.textContent = storedExpenses.description;
-      newTableRow.append(descriptionCell);
+      const categoryCell = document.createElement("td");
+      categoryCell.textContent = expense.category;
+      newTableRow.append(categoryCell);
 
-      // --
+      // -- 
 
       const dateCell = document.createElement("td");
-      dateCell.textContent = storedExpenses.date;
+      dateCell.textContent = expense.date;
       newTableRow.append(dateCell);
   
       expenseTable.append(newTableRow);
