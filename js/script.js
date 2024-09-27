@@ -1,13 +1,12 @@
-/* 
-Lines 7 and 8 are delcaring variables named expenseForm and expenseButton and assigning the values. it looks for HTML element on the HTML document with ID #expense-form and #expense-button and assigns their values to to the corresponding variable. 
-queryselector method allows you to select the first element within the document that matches the specified CSS selector. 
-
-Recap- we're storing the HTML element in a JS variable so that we can access the values entered in those fields and add event listeners. Gives us access to them.
- */
 const expenseForm = document.querySelector('#expense-form');
 const expenseButton = document.querySelector('#expense-button');
+// const dropdownBtn = document.querySelector('#dropdown-button')
 
+function getExpenses(){
+    return JSON.parse(localStorage.getItem('storedExpenses')) || [];
+}
 
+<<<<<<< HEAD
 /*
 line 34 is declaring a variable named expenseArray, and assigning the value.
 
@@ -95,24 +94,100 @@ expenseArray is the array we are storing in localStorage - we have to use the JS
 // // Creates a console log showing the property:value pairs of the expenseObject that was just created.
 // console.log('New expense added! Here are the details: ', expenseObject);
 
+=======
+function addExpense() {
+
+    let expenseArray = getExpenses();
+
+    const categoryInput = document.querySelector('#category-input').value;
+
+    const amountInput = parseFloat(document.querySelector('#amount-input').value);
+
+    const dateInput = document.querySelector('#date-input').value;
+
+    const expenseObject = {
+        category: categoryInput,
+        amount: amountInput,
+        date: dateInput,
+    };
+
+    expenseArray.push(expenseObject);
+
+    localStorage.setItem('storedExpenses', JSON.stringify(expenseArray));
+    showTable();
+
+    console.log('New expense added! Here are the details: ', expenseObject);
+    
+}
+>>>>>>> 2cd458120d2ff47f9a4ba340cd099f7187eb33d4
+
+
+// function collectMaxBalanceAmount() {
+//     let balanceAmount = JSON.parse(localStorage.getItem('storedBalance')) || [];
+//     const balanceInput = document.querySelector('#balance-input').value;
+
+//     localStorage.setItem('storedBalance', JSON.stringify(balanceAmount));
+
+//     console.log('This the balance amount you set: ')
+
+// }
+
+
+
+function showTable() {
+
+    let storedExpenses = getExpenses();
+    // declares a variable named 'expenseTable' and assigns the value to the first element with the #expense-table class.
+    const expenseTable = document.querySelector('#expense-table');
+
+    // clears any existing content inside the expenseTable element by setting its innerHTML property to an empty string - ensures that the table is empty before any new content is added.
+    expenseTable.innerHTML = '';
+
+    // this starts a for each loop that iterates over each expense item in the array. the forEach method executes the provided function one time for every element in the array.
+    storedExpenses.forEach(function(expense) {
+        // Create new table row:
+      const newTableRow = document.createElement("tr");
+
+      // create new table data elements for 3 pieces of info stored in object (storedExpenses, in this case) and these will display left to right:
+      const amountCell = document.createElement("td");
+      // Format the salary as currency
+      amountCell.textContent = expense.amount;
+      newTableRow.append(amountCell);
+
+      // --
+
+      const categoryCell = document.createElement("td");
+      categoryCell.textContent = expense.category;
+      newTableRow.append(categoryCell);
+
+      // -- 
+
+      const dateCell = document.createElement("td");
+      dateCell.textContent = expense.date;
+      newTableRow.append(dateCell);
+  
+      expenseTable.append(newTableRow);
+
+        // injects the HTML created above into the element named expenseTable that we declared at the top of the section. beforeend adds the HTML to the end of the existing table.
+    });
+    console.log('These are the current stored expenses:', storedExpenses);
+
+}
+
 
 
 /* EVENT LISTENERS */
 
-// defines a function named 'initialize', which is executed when called
 function initialize() {
-
-    // adds an event listener to the expenseButton button that calls the addExpense function when clicked
+    // dropdownBtn.addEventListener('click', );
     expenseButton.addEventListener('click', addExpense);
-
-    // adds an event listener to the expenseForm that calls the addExpense function when the form is submitted
     expenseForm.addEventListener('submit', addExpense);
-
-    // initilizes a jQuery date picker on the element with the the ID date-input.
     $('#date-input').datepicker();
+    showTable();
 
 }
 
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize all dropdowns
     var dropdownElements = document.querySelectorAll('.dropdown-toggle');
@@ -122,7 +197,50 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // call the initilize function to set up the event listeners and date picker when the script runs
+=======
+>>>>>>> 2cd458120d2ff47f9a4ba340cd099f7187eb33d4
 initialize();
 
 
-// TODO - do we define line 30 outside the addExpense function? 
+
+
+// // ------------------------------------------------------------------------------
+// // Table function 
+// const displayExpense = function(expenseArray) {
+//     // Get the employee table
+//     const expenseTable = document.querySelector('#expense-table');
+  
+//     // Clear the employee table
+//     expenseTable.innerHTML = '';
+  
+//     // Loop through the employee data and create a row for each employee
+//     for (let i = 0; i < expenseArray.length; i++) {
+//       const currentExpense = expenseArray[i];
+//       // Create new table row:
+//       const newTableRow = document.createElement("tr");
+
+
+//       // create new table data elements for 3 pieces of info stored in object (currentEmployee, in this case) and these will display left to right:
+//       const amountCell = document.createElement("td");
+//       // Format the salary as currency
+//       amountCell.textContent = currentExpense.amount.toLocaleString("en-US",{
+//         style:"currency",
+//         currency:"USD"
+//       });
+//       newTableRow.append(amountCell);
+
+//       // --
+
+//       const descriptionCell = document.createElement("td");
+//       descriptionCell.textContent = currentExpense.description;
+//       newTableRow.append(descriptionCell);
+
+//       // --
+
+//       const dateCell = document.createElement("td");
+//       dateCell.textContent = currentExpense.date;
+//       newTableRow.append(dateCell);
+  
+//       expenseTable.append(newTableRow);
+//     }
+//   }
