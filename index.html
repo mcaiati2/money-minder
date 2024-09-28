@@ -15,9 +15,10 @@
     <header>
         <nav class="nav-bar">
             <!-- NEED LOGO PNG HERE -->
-            <div><img src="./images/mm-logo-v2.png" width="100" alt="app logo showing 2 letter Ms that are connected"></div>
-            <h3 id="limit-display">Monthly Limit</h3>
-            <h2 id="total-display">Total Display</h2>
+            <div><img src="./images/mm-logo-v2.png" width="100" alt="app logo showing 2 letter Ms that are connected">
+            </div>
+            <h3 id="limit-display">My Monthly Limit</h3>
+            <h3 id="total-display">Total Display</h3>
             <div class="dropdown">
                 <button class="btn btn-success dropdown-toggle" type="button" id="dropdown-button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
@@ -33,23 +34,27 @@
         <section class="row p-2 p-sm-3 px-lg-5 g-3">
             <!-- made 12 columns, so maing each button 6 will make 2 on a row -->
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#expense-modal">
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="#expense-modal">
                     Add New Expense
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#placeholder">
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="#expese-modal">
                     Current Statement
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                    <!-- Button trigger modal -->
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="#limit-modal">
+                <!-- Button trigger modal -->
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="#limit-modal">
                     Adjust Monthly Limit
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal" data-bs-target="placeholder">
+                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                    data-bs-target="placeholder">
                     About
                 </button>
             </div>
@@ -60,13 +65,6 @@
         </section>
     </main>
 
-    <!-- MIKE'S TESTING 9-28 >  -->
-    <!-- <aside>
-        <h3>Expense List</h3>
-        <div id="limit-display"></div> 
-    </aside> -->
-    <!-- END OF MIKE'S TESTING9-28 -->
-     
     <section>
         <div>
             <!-- THE TABLE -->
@@ -122,31 +120,31 @@
         </div>
     </div>
 
-  
-  <!-- modal code for the adjust monthly limit button -->
-  <div class="modal fade" id="limit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+    <!-- modal code for the adjust monthly limit button -->
+    <div class="modal fade" id="limit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Monthly Limit Modal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="p-2" id="limit-form">
+                        <div class="mb-3">
+                            <label for="limit-input" class="form-label">Limit:</label>
+                            <input type="text" class="form-control" id="limit-input" aria-describedby="limitInput">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="limit-button" data-bs-dismiss="modal">Save
+                        changes</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <form class="p-2" id="limit-form">
-                <div class="mb-3">
-                    <label for="limit-input" class="form-label">Limit:</label>
-                    <input type="text" class="form-control" id="limit-input"
-                        aria-describedby="limitInput">
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="limit-button" data-bs-dismiss="modal">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

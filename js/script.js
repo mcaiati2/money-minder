@@ -40,12 +40,12 @@ function addExpense() {
     showTotalExpenses();
 
     console.log('New expense added! Here are the details: ', expenseObject);
-    
+
 }
 
 
 function addLimitAmount() {
-    
+
     let limitAmount = getLimitAmount();
     console.log('test: ', limitAmount);
 
@@ -72,7 +72,7 @@ function calculateTotalExpenses() {
     console.log(total, 'is the total amount of expenses.');
     return total;
 
-    
+
 }
 
 function showTotalExpenses() {
@@ -83,7 +83,7 @@ function showTotalExpenses() {
     displayedTotal.innerHTML = '';
 
     let displayedTotalHTML = `
-    <h2 class="total-display">Total Expenses:
+    <h3 class="total-display" style="color: #006e00";>Current Monthly Expenses:
     $${storedTotalExpenses}</h3>
     `;
     displayedTotal.insertAdjacentHTML('beforeend', displayedTotalHTML);
@@ -99,11 +99,11 @@ function showLimitAmount() {
     displayedLimit.innerHTML = '';
 
     let displayedLimitHTML = `
-    <h3 class="limit-display">Monthly Limit: 
+    <h3 class="limit-display" style="color: #009900": >My Monthly Limit: 
         $${storedLimitAmount}</h3>
     `;
     displayedLimit.insertAdjacentHTML(
-    'beforeend', displayedLimitHTML);
+        'beforeend', displayedLimitHTML);
 
 }
 
@@ -118,29 +118,29 @@ function showTable() {
     expenseTable.innerHTML = '';
 
     // this starts a for each loop that iterates over each expense item in the array. the forEach method executes the provided function one time for every element in the array.
-    storedExpenses.forEach(function(expense) {
+    storedExpenses.forEach(function (expense) {
         // Create new table row:
-      const newTableRow = document.createElement("tr");
+        const newTableRow = document.createElement("tr");
 
-      // create new table data elements for 3 pieces of info stored in object (storedExpenses, in this case) and these will display left to right:
-      const amountCell = document.createElement("td");
-      // Format the salary as currency
-      amountCell.textContent = expense.amount;
-      newTableRow.append(amountCell);
+        // create new table data elements for 3 pieces of info stored in object (storedExpenses, in this case) and these will display left to right:
+        const amountCell = document.createElement("td");
+        // Format the salary as currency
+        amountCell.textContent = expense.amount;
+        newTableRow.append(amountCell);
 
-      // --
+        // --
 
-      const categoryCell = document.createElement("td");
-      categoryCell.textContent = expense.category;
-      newTableRow.append(categoryCell);
+        const categoryCell = document.createElement("td");
+        categoryCell.textContent = expense.category;
+        newTableRow.append(categoryCell);
 
-      // -- 
+        // -- 
 
-      const dateCell = document.createElement("td");
-      dateCell.textContent = expense.date;
-      newTableRow.append(dateCell);
-  
-      expenseTable.append(newTableRow);
+        const dateCell = document.createElement("td");
+        dateCell.textContent = expense.date;
+        newTableRow.append(dateCell);
+
+        expenseTable.append(newTableRow);
 
         // injects the HTML created above into the element named expenseTable that we declared at the top of the section. beforeend adds the HTML to the end of the existing table.
     });
@@ -157,23 +157,20 @@ function showTable() {
 function initialize() {
     // dropdownBtn.addEventListener('click', );
     expenseForm.addEventListener('submit', addExpense);
-
-    // TODO why do we need click?
     expenseButton.addEventListener('click', addExpense);
 
 
     limitForm.addEventListener('submit', addLimitAmount);
     limitButton.addEventListener('click', addLimitAmount);
 
-    
-
-    // I had this and it was putting in a new value of 0 time they clicked inside the form VVV
-    // limitForm.addEventListener('click', addLimitAmount);
-
     $('#date-input').datepicker();
     showTable();
     showLimitAmount();
     showTotalExpenses();
+
+
+
+
 
 
     /* 
@@ -195,7 +192,7 @@ function initialize() {
 
     'submit' event is triggered when the form is submitted.
     */
-    
+
 }
 
 initialize();
