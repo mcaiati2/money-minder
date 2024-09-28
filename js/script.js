@@ -1,6 +1,6 @@
 const expenseForm = document.querySelector('#expense-form');
 const expenseButton = document.querySelector('#expense-button');
-// const dropdownBtn = document.querySelector('#dropdown-button')
+const dropdownBtn = document.querySelector('#dropdown-button')
 
 function getExpenses(){
     return JSON.parse(localStorage.getItem('storedExpenses')) || [];
@@ -89,13 +89,18 @@ function showTable() {
 /* EVENT LISTENERS */
 
 function initialize() {
-    // dropdownBtn.addEventListener('click', );
+
     expenseButton.addEventListener('click', addExpense);
     expenseForm.addEventListener('submit', addExpense);
     $('#date-input').datepicker();
     showTable();
 
+    dropdownBtn.addEventListener('click', function() {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.classList.toggle('show');
+    });
 }
+
 
 initialize();
 
