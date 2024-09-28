@@ -2,6 +2,14 @@ html, body {
     height: 100%;
 }
 
+.mm-logo-gradient {
+    color: linear-gradient(to right,#009900, #006e00);
+}
+
+h3 {
+    color: #009900;
+}
+
 body {
     background-color: rgb(192, 168, 145);
     background: linear-gradient(to bottom, rgb(78, 76, 73), #fff);

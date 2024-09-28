@@ -1,14 +1,15 @@
 const expenseForm = document.querySelector('#expense-form');
 const expenseButton = document.querySelector('#expense-button');
 // const dropdownBtn = document.querySelector('#dropdown-button')
+const limitForm = document.querySelector('#limit-form');
+const limitButton = document.querySelector('#limit-button');
 
 function getExpenses() {
     return JSON.parse(localStorage.getItem('storedExpenses')) || [];
 }
 
 function getLimitAmount() {
-    return JSON.parse(localStorage.getItem('storedLimitAmount')) || NaN;
-    // TODO NaN instead of '' ?
+    return JSON.parse(localStorage.getItem('storedLimitAmount')) || 0;
 }
 
 function addExpense() {
@@ -40,15 +41,16 @@ function addExpense() {
 function addLimitAmount() {
     
     let limitAmount = getLimitAmount();
+    console.log('test: ', limitAmount);
 
-    const limitInput = document.querySelector('#limit-input').value;
+    const limitInput = Number(document.querySelector('#limit-input').value);
 
-    limitAmount.push(limitInput);
-    
+    limitAmount = limitInput;
+
     localStorage.setItem('storedLimitAmount', JSON.stringify(limitAmount));
     showLimitAmount();
 
-    console.log('This the limit amount you set: ')
+    console.log('New limit set! Here is the amount: ', limitAmount);
 
 }
 
@@ -56,17 +58,18 @@ function showLimitAmount() {
 
     let storedLimitAmount = getLimitAmount();
 
-    let displayedLimit = document.querySelector('#limit-disply');
+    let displayedLimit = document.querySelector('#limit-display');
 
     displayedLimit.innerHTML = '';
 
     let displayedLimitHTML = `
-    <div class="limit-display">
-        <h3>${storedLimitAmount}</h3>
-    </div> 
+    <h3 class="limit-display">Monthly Limit: 
+        $${storedLimitAmount}</h3>
     `;
-    displayedLimit.insertAdjacentHTML
-    ('beforeend', displayedLimitHTML);
+    displayedLimit.insertAdjacentHTML(
+    'beforeend', displayedLimitHTML);
+
+    
 
 }
 
@@ -115,57 +118,48 @@ function showTable() {
 
 /* EVENT LISTENERS */
 
+// The main buttons exist in the HTML! That's why there's no reference to them here!
+
 function initialize() {
-    // dropdownBtn.addEventListener('click', );
-    expenseButton.addEventListener('click', addExpense);
     expenseForm.addEventListener('submit', addExpense);
+
+    // TODO why do we need click?
+    expenseButton.addEventListener('click', addExpense);
+
+
+    limitForm.addEventListener('submit', addLimitAmount);
+    limitButton.addEventListener('click', addLimitAmount);
+
+    
+
+    // I had this and it was putting in a new value of 0 time they clicked inside the form VVV
+    // limitForm.addEventListener('click', addLimitAmount);
+
     $('#date-input').datepicker();
     showTable();
+    showLimitAmount();
 
+
+    /* 
+    limitButton is the DOM element for the Save Changes button on the Adjust Monthly Limit button.
+
+    addEventListener is the method that listens for browser events
+
+    'click' event is triggered when the user clicks on the limitButton (Save Changes button on the Adjust Monthy Limit button.)
+
+    submit is doing the exact same thing but also allowing for the user to click enter.
+    */
+
+
+
+    /*
+    limitForm is the DOM element for the blank text box under 'Limit' txxt where you input the number. That is considered a form!
+
+    addEventListener is the method that listens for browser events
+
+    'submit' event is triggered when the form is submitted.
+    */
+    
 }
 
 initialize();
-
-
-
-
-// // ------------------------------------------------------------------------------
-// // Table function 
-// const displayExpense = function(expenseArray) {
-//     // Get the employee table
-//     const expenseTable = document.querySelector('#expense-table');
-  
-//     // Clear the employee table
-//     expenseTable.innerHTML = '';
-  
-//     // Loop through the employee data and create a row for each employee
-//     for (let i = 0; i < expenseArray.length; i++) {
-//       const currentExpense = expenseArray[i];
-//       // Create new table row:
-//       const newTableRow = document.createElement("tr");
-
-
-//       // create new table data elements for 3 pieces of info stored in object (currentEmployee, in this case) and these will display left to right:
-//       const amountCell = document.createElement("td");
-//       // Format the salary as currency
-//       amountCell.textContent = currentExpense.amount.toLocaleString("en-US",{
-//         style:"currency",
-//         currency:"USD"
-//       });
-//       newTableRow.append(amountCell);
-
-//       // --
-
-//       const descriptionCell = document.createElement("td");
-//       descriptionCell.textContent = currentExpense.description;
-//       newTableRow.append(descriptionCell);
-
-//       // --
-
-//       const dateCell = document.createElement("td");
-//       dateCell.textContent = currentExpense.date;
-//       newTableRow.append(dateCell);
-  
-//       expenseTable.append(newTableRow);
-//     }
-//   }
