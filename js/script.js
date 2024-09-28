@@ -83,7 +83,7 @@ function showTotalExpenses() {
     displayedTotal.innerHTML = '';
 
     let displayedTotalHTML = `
-    <h3 class="total-display" style="color: #006e00";>Current Monthly Expenses:
+    <h3 class="total-display" style="color: #009900";>Current Monthly Expenses:
     $${storedTotalExpenses}</h3>
     `;
     displayedTotal.insertAdjacentHTML('beforeend', displayedTotalHTML);
@@ -99,7 +99,7 @@ function showLimitAmount() {
     displayedLimit.innerHTML = '';
 
     let displayedLimitHTML = `
-    <h3 class="limit-display" style="color: #009900": >My Monthly Limit: 
+    <h3 class="limit-display" style="color: #006e00": >My Monthly Limit: 
         $${storedLimitAmount}</h3>
     `;
     displayedLimit.insertAdjacentHTML(
@@ -165,8 +165,8 @@ function initialize() {
 
     $('#date-input').datepicker();
     showTable();
-    showLimitAmount();
     showTotalExpenses();
+    showLimitAmount();
 
 
 
