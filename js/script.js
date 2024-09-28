@@ -2,8 +2,13 @@ const expenseForm = document.querySelector('#expense-form');
 const expenseButton = document.querySelector('#expense-button');
 // const dropdownBtn = document.querySelector('#dropdown-button')
 
-function getExpenses(){
+function getExpenses() {
     return JSON.parse(localStorage.getItem('storedExpenses')) || [];
+}
+
+function getLimitAmount() {
+    return JSON.parse(localStorage.getItem('storedLimitAmount')) || NaN;
+    // TODO NaN instead of '' ?
 }
 
 function addExpense() {
@@ -32,16 +37,38 @@ function addExpense() {
 }
 
 
-// function collectMaxBalanceAmount() {
-//     let balanceAmount = JSON.parse(localStorage.getItem('storedBalance')) || [];
-//     const balanceInput = document.querySelector('#balance-input').value;
+function addLimitAmount() {
+    
+    let limitAmount = getLimitAmount();
 
-//     localStorage.setItem('storedBalance', JSON.stringify(balanceAmount));
+    const limitInput = document.querySelector('#limit-input').value;
 
-//     console.log('This the balance amount you set: ')
+    limitAmount.push(limitInput);
+    
+    localStorage.setItem('storedLimitAmount', JSON.stringify(limitAmount));
+    showLimitAmount();
 
-// }
+    console.log('This the limit amount you set: ')
 
+}
+
+function showLimitAmount() {
+
+    let storedLimitAmount = getLimitAmount();
+
+    let displayedLimit = document.querySelector('#limit-disply');
+
+    displayedLimit.innerHTML = '';
+
+    let displayedLimitHTML = `
+    <div class="limit-display">
+        <h3>${storedLimitAmount}</h3>
+    </div> 
+    `;
+    displayedLimit.insertAdjacentHTML
+    ('beforeend', displayedLimitHTML);
+
+}
 
 
 function showTable() {
