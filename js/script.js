@@ -7,6 +7,7 @@ function getExpenses(){
 }
 
 function addExpense() {
+   
 
     let expenseArray = getExpenses();
 
@@ -28,6 +29,10 @@ function addExpense() {
     showTable();
 
     console.log('New expense added! Here are the details: ', expenseObject);
+
+    categoryInput.value = '';
+    amountInput.value = '';
+    dateInput.value = '';
     
 }
 

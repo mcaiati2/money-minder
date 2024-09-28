@@ -11,22 +11,72 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="nav-bar">
             <!-- NEED LOGO PNG HERE -->
-            <div><img src="./images/mm-logo-v2.png" width="100" alt=""></div>
+            <div>
+                <a href="./index.html">
+                    <img src="./images/mm-logo-v2.png" width="100" alt="">
+                </a>
+            </div>
             <div class="dropdown">
-                <button class="btn btn-success dropdown-toggle" type="button" id="dropdown-button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+                <button class="btn btn-success dropdown-toggle menu-button" type="button" id="dropdown-button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Button</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Setting</a>
+                    <a class="dropdown-item" href="#">About</a>
+                    <a class="dropdown-item" href="#">Help Center</a>
+                    <a class="dropdown-item" href="#">FAQ</a>
                 </div>
             </div>
         </nav>
     </header>
+
+    <main>
+        <div class="container">
+            <img src="./images/money minder new placeholder.jpg" alt="placeholder image" class="image-size image figure-img img-fluid rounded">
+            <div class="text-content">
+                <h2>What is Money Minder?</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, animi facere inventore ipsa
+                    exercitationem,
+                    eaque maxime quisquam eligendi ea distinctio quo. Molestiae sint nam minus? Cum rerum temporibus
+                    commodi
+                    facilis.
+                    Repudiandae laudantium laboriosam totam ipsam consequuntur ducimus vitae sunt voluptates nulla
+                    facilis
+                    soluta ipsa, doloremque et, unde sint eveniet culpa dolorum. Ipsum accusantium dolore accusamus
+                    culpa, sunt
+                    laborum quia eos!
+                    Libero, assumenda numquam nostrum dolorem, delectus odio esse, in sed quam facere modi consequatur
+                    suscipit.
+                    Dicta porro harum veritatis! Fuga ipsa repellendus earum assumenda nesciunt sed dolorem natus ut
+                    pariatur?
+                    Sequi sit quod aliquam eum dolorum dicta, quae voluptatem reiciendis vero perferendis ut sed facere
+                    at
+                    quasi. Voluptas perspiciatis mollitia odio nemo voluptates porro enim nobis. Placeat modi aliquid
+                    beatae.
+                </p>
+            </div>
+        </div>
+    </main>
+    <section>
+        <div class="container">
+            <div class="text-content">
+    <h2>Meet Our Team</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sapiente porro dolore veniam necessitatibus
+        rem a itaque quam fuga? Nostrum veniam accusantium est dolorem, amet nulla culpa quaerat officiis error.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sapiente porro dolore veniam necessitatibus
+        rem a itaque quam fuga? Nostrum veniam accusantium est dolorem, amet nulla culpa quaerat officiis error.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sapiente porro dolore veniam necessitatibus
+        rem a itaque quam fuga? Nostrum veniam accusantium est dolorem, amet nulla culpa quaerat officiis error.</p>
+        </div>
+        <img src="./images/money minder new placeholder.jpg" alt="placeholder image" class="image-size image figure-img img-fluid rounded">
+        </div>
+
+        
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -36,9 +86,14 @@
     <script src="./js/script.js"></script>
 </body>
 
-<footer>
+<footer class="mt-auto">
     <p>Copyright 2024</p>
-    <p>Dev & Design by Mike Caiati Nina DeLucia Izzy Figueroa</p>
+    <div>
+        <i class="fa-solid fa-phone"></i>
+        <i class="fa-regular fa-envelope"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+    </div>
+    <p>Designed by: MC, ND, IF</p>
 </footer>
 
 </html>
