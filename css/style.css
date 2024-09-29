@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -25,7 +26,8 @@ body {
 
 .big-btn {
     width: 400px;
-} 
+}
+
 /* Works but I can't get it to be responsive though lol T_T */
 
 /* .d-grid */
@@ -35,59 +37,87 @@ body {
 } */
 
 table {
-    width:75%;
+    width: 75%;
     justify-content: center;
     border-spacing: 0;
     border-collapse: collapse;
-  }
-  
-  td{
-    text-align: center;
-    border:4px solid black;
-  }
-  
-  tbody tr:nth-child(even) {
-    background-color: hsl(223, 64%, 90%);
-  }
+}
 
-  /* Nina */
-  .facts-section {
+td {
+    text-align: center;
+    border: 4px solid black;
+}
+
+tbody tr:nth-child(even) {
+    background-color: hsl(223, 64%, 90%);
+}
+
+/* Nina */
+.facts-section {
     background-color: #fff;
     text-align: center;
     padding: 25px 50px;
     margin: 20px 50px 30px;
-  }
+}
 
-  .facts-section h2 {
+.facts-section h2 {
     font-family: "Oswald", sans-serif;
     color: #3f3b3b;
     font-size: 2.75rem;
     padding-bottom: 20px;
-  }
+}
 
-  .facts-section h4{
+.facts-section h4 {
     font-family: "Mulish", sans-serif;
     font-weight: bold;
-  }
+}
 
-  .question {
+.question {
     margin: 5%;
-  }
+}
 
-  @media screen and (min-width:1500px) {
+.faq-banner {
+    margin: 20px 50px 30px;
+    color: white;
+}
+
+.bg-img-holder {
+    background-image: url("../images/faq-model.jpg");
+    filter: grayscale(100%);
+    opacity: 50%;
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.absolute {
+    position: absolute;
+}
+
+
+
+
+
+
+
+/* Media queries */
+
+@media screen and (min-width:1300px) {
     .facts-section {
         background-color: #fff;
         text-align: center;
         padding: 15px 500px;
         margin: 20px 150px 30px;
-      }
-  }
+    }
+}
 
-  @media (max-width: 2200px) and (min-width: 1500px) {
+@media screen and (min-width: 1300px) {
     .facts-section {
         background-color: #fff;
         text-align: center;
         padding: 15px 150px;
-        margin: 20px 100px 30px;
-      }
-  }
+        margin: 20px 50px 30px;
+    }
+}
