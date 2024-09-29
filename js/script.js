@@ -14,6 +14,8 @@ function getTotalExpenseAmount() {
     return JSON.parse(localStorage.getItem('storedTotalExpenses')) || 0;
 }
 function addExpense() {
+   
+
     let expenseArray = getExpenses();
     const categoryInput = document.querySelector('#category-input').value;
     const amountInput = parseFloat(document.querySelector('#amount-input').value);
@@ -104,6 +106,11 @@ function initialize() {
         const dropdownMenu = document.querySelector('.dropdown-menu');
         dropdownMenu.classList.toggle('show');
     });
+    dropdownBtn.addEventListener('click', function() {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.classList.toggle('show');
+    });
+
     expenseForm.addEventListener('submit', addExpense);
     expenseButton.addEventListener('click', addExpense);
     limitForm.addEventListener('submit', addLimitAmount);
@@ -115,6 +122,17 @@ function initialize() {
 }
 initialize();
     /*
+
+    
+}
+
+initialize();
+
+
+
+
+
+    /* 
     limitButton is the DOM element for the Save Changes button on the Adjust Monthly Limit button.
     addEventListener is the method that listens for browser events
     'click' event is triggered when the user clicks on the limitButton (Save Changes button on the Adjust Monthy Limit button.)
@@ -125,3 +143,5 @@ initialize();
     addEventListener is the method that listens for browser events
     'submit' event is triggered when the form is submitted.
     */
+
+ 
