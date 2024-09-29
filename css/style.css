@@ -1,6 +1,30 @@
-html, body {
+html,
+body {
     height: 100%;
 }
+
+/* header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */
+/* do we want a fixed header? */
+
+
+.mm-logo-gradient {
+    color: linear-gradient(to right, #009900, #006e00);
+}
+
+.mm-light-green {
+    color: #009900;
+
+
+}
+
+.mm-dark green {
+    color: #006e00;
+}
+
 
 body {
     background-color: rgb(192, 168, 145);
@@ -25,7 +49,8 @@ body {
 
 .big-btn {
     width: 400px;
-} 
+}
+
 /* Works but I can't get it to be responsive though lol T_T */
 
 /* .d-grid */
@@ -35,17 +60,17 @@ body {
 } */
 
 table {
-    width:75%;
+    width: 75%;
     justify-content: center;
     border-spacing: 0;
     border-collapse: collapse;
-  }
-  
-  td{
+}
+
+td {
     text-align: center;
-    border:4px solid black;
-  }
-  
-  tbody tr:nth-child(even) {
+    border: 4px solid black;
+}
+
+tbody tr:nth-child(even) {
     background-color: hsl(223, 64%, 90%);
-  }
+}
