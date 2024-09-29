@@ -30,7 +30,7 @@ body {
 
 .container {
     display: flex;
-    align-items: center; /* Align items vertically centered */
+    align-items: flex-start; /* Align items vertically centered */
     gap: 20px; /* Space between image and text */
     flex: 1;
 }
@@ -43,14 +43,20 @@ body {
 .text-content {
     display: flex;
     flex-direction: column;
-    width: 48%; /* Stack the h1 and p vertically */
+    width: 70%; /* Stack the h1 and p vertically */
+    
 }
 
 section, img {
     margin: 5px 5px;
 }
 
-
+h1 {
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
 
 main {
     display: flex;
@@ -63,6 +69,8 @@ main {
     margin: 5px;
     padding: 50px;
  }
+
+
 /* 
 .benefits {
     margin: auto;
@@ -96,7 +104,7 @@ main {
 
 table {
     background-color: #fff;
-    width:75%;
+    width:65%;
     margin: auto;
     justify-content: center;
     border-spacing: 0;
@@ -105,6 +113,7 @@ table {
   }
   
   td, th{
+    margin: auto;
     text-align: center;
     border:2px solid black;
   }
