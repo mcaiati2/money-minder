@@ -27,81 +27,6 @@ body {
     height: auto;
 }
 
-
-.container {
-    display: flex;
-    align-items: flex-start; /* Align items vertically centered */
-    gap: 20px; /* Space between image and text */
-    flex: 1;
-}
-
-.image {
-    width: 48%; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.text-content {
-    display: flex;
-    flex-direction: column;
-    width: 70%; /* Stack the h1 and p vertically */
-    
-}
-
-section, img {
-    margin: 5px 5px;
-}
-
-h1 {
-    font-size: 5rem;
-    display: flex;
-    justify-content: center;
-    color: #fff;
-}
-
-main {
-    display: flex;
-    padding: 10px;
-    justify-content: space-evenly;
-
-}
- aside {
-    text-align: center;
-    margin: 5px;
-    padding: 50px;
- }
-
-
-/* 
-.benefits {
-    margin: auto;
-    padding: 20px;
-    clear: both;
-    
-    width: 40%;
-    height: 100%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-     */
-/* } */
-/* .grid-container-btns {
-    display: grid;
-    grid-template-columns: auto auto;
-    margin: 15px;
-    gap: 10px;
-    
-} */
-
-.big-btn {
-    width: 400px;
-} 
-/* Works but I can't get it to be responsive though lol T_T */
-
-/* .d-grid */
-
-/* .ombre-background {
-    background: linear-gradient(to bottom, rgb(167, 133, 99), #fff);
-} */
-
-
 table {
     background-color: #fff;
     width:65%;
@@ -119,6 +44,37 @@ table {
   }
   
 
+.container {
+    display: flex;
+    align-items: flex-start; 
+    gap: 20px; 
+    flex: 1;
+}
+
+.image {
+    width: 48%; 
+    height: auto; 
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    width: 70%; 
+    
+}
+
+section, img {
+    margin: 5px 5px;
+}
+
+h1 {
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+
   footer {
     display: flex;
     justify-content: space-evenly;
@@ -127,6 +83,4 @@ table {
     padding: 5px 7%;
     color: #bbb;
   }
-  /* tbody tr:nth-child(even) {
-    background-color: hsl(223, 64%, 90%);
-  } */
+  
