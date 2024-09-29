@@ -1,7 +1,9 @@
 html,
 body {
     height: 100%;
+    margin: 0;
 }
+
 
 
 .mm-logo-gradient {
@@ -25,51 +27,79 @@ body {
     background-repeat: no-repeat;
 }
 
-.nav-bar {
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ffffffee;
+    
+    padding: 5px 7%;
+    color: #bbb;
+  }
+
+ .nav-bar {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     background-color: #ffffffee;
 }
 
-/* .grid-container-btns {
-    display: grid;
-    grid-template-columns: auto auto;
-    margin: 15px;
-    gap: 10px;
-    
-} */
-
-.big-btn {
-    width: 400px;
+.menu-button {
+    margin-right: 30px;
+    padding-right: 15px;
 }
 
-/* Works but I can't get it to be responsive though lol T_T */
-
-/* .d-grid */
-
-/* .ombre-background {
-    background: linear-gradient(to bottom, rgb(167, 133, 99), #fff);
-} */
+.image-size {
+    width: 60%;
+    height: auto;
+}
 
 table {
-    width: 75%;
+    background-color: #fff;
+    width:65%;
+    margin: auto;
     justify-content: center;
     border-spacing: 0;
     border-collapse: collapse;
-}
-
-td {
+    color: #000000;
+  }
+  
+  td, th{
+    margin: auto;
     text-align: center;
-    border: 4px solid black;
+    border:2px solid black;
+  }
+  
+
+.container {
+    display: flex;
+    align-items: flex-start; 
+    gap: 20px; 
+    flex: 1;
 }
 
-tbody tr:nth-child(even) {
-    background-color: hsl(223, 64%, 90%);
+.image {
+    width: 48%; 
+    height: auto; 
 }
 
+.text-content {
+    display: flex;
+    flex-direction: column;
+    width: 70%; 
+    
+}
 
-/* Nina's classes */
+section, img {
+    margin: 5px 5px;
+}
+
+h1 {
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    color: #000000;
+}
+
 
 .facts-section {
     background-color: #fff;
@@ -79,14 +109,12 @@ tbody tr:nth-child(even) {
 }
 
 .facts-section h2 {
-    font-family: "Oswald", sans-serif;
     color: #3f3b3b;
     font-size: 2.75rem;
     padding-bottom: 20px;
 }
 
 .facts-section h4 {
-    font-family: "Mulish", sans-serif;
     font-weight: bold;
 }
 
@@ -114,7 +142,13 @@ tbody tr:nth-child(even) {
     position: absolute;
 }
 
-
+.banner-div {
+    width: 100%;
+    height: 170px;
+    padding-top: 45px;
+    text-align: center;
+    background-color: white;
+}
 
 
 

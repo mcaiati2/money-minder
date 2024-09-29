@@ -18,6 +18,7 @@ function getTotalExpenseAmount() {
 }
 
 function addExpense() {
+   
 
     let expenseArray = getExpenses();
 
@@ -155,7 +156,11 @@ function showTable() {
 // The main buttons exist in the HTML! That's why there's no reference to them here!
 
 function initialize() {
-    // dropdownBtn.addEventListener('click', );
+    dropdownBtn.addEventListener('click', function() {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.classList.toggle('show');
+    });
+
     expenseForm.addEventListener('submit', addExpense);
     expenseButton.addEventListener('click', addExpense);
 
@@ -168,6 +173,10 @@ function initialize() {
     showTotalExpenses();
     showLimitAmount();
 
+    
+}
+
+initialize();
 
 
 
@@ -193,6 +202,4 @@ function initialize() {
     'submit' event is triggered when the form is submitted.
     */
 
-}
-
-initialize();
+ 
