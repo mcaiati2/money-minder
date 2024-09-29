@@ -14,10 +14,10 @@
 <body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="nav-bar">
-            <!-- NEED LOGO PNG HERE -->
             <div>
                 <a href="./index.html">
-                    <img src="./images/mm-logo-v2.png" width="100" alt="">
+                    <img src="./images/mm-logo-v2.png" width="100"
+                        alt="app logo showing 2 letter Ms that are connected">
                 </a>
             </div>
             <div class="dropdown">
@@ -28,50 +28,44 @@
                     <a class="dropdown-item" href="#">Setting</a>
                     <a class="dropdown-item" href="./about.html">About</a>
                     <a class="dropdown-item" href="#">Help Center</a>
-                    <a class="dropdown-item" href="#">FAQ</a>
+                    <a class="dropdown-item" href="./faq.html">FAQ</a>
                 </div>
             </div>
         </nav>
+        <div class="banner-div">
+            <h3 id="total-display">Total Display</h3>
+            <h3 id="limit-display">My Monthly Limit</h3>
+        </div>
     </header>
     <main class="container-fluid">
         <section class="row p-2 p-sm-3 px-lg-5 g-3">
-            <!-- made 12 columns, so maing each button 6 will make 2 on a row -->
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
+                <button type="button" class="flex-fill py-5 btn btn-success" data-bs-toggle="modal"
                     data-bs-target="#expense-modal">
-                    Add Expense
+                    Add New Expense/Credit My Balance
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
-                    data-bs-target="#expense-modal">
-                    Current Statement
-                </button>
+
+                <a href="faq.html" type="button" class="flex-fill py-5 btn btn-success">FAQ</a>
+
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
-                    data-bs-target="#expense-modal">
+                <button type="button" class="flex-fill py-5 btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#limit-modal">
                     Adjust Monthly Limit
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
-                <!-- <button type="button" class="flex-fill py-5 btn btn-light" >
-                    About
-                </button> -->
-                <a href="about.html" type="button" class="flex-fill py-5 btn btn-light">About</a>
+
+                <a href="about.html" type="button" class="flex-fill py-5 btn btn-success">About</a>
+
             </div>
     </main>
 
-    <!-- MIKE'S TESTING 9-26 >  -->
-    <!-- <aside>
-        <h3>Expense List</h3>
-        <div id="expense-table"></div> 
-    </aside> -->
-    <!-- END OF MIKE'S TESTING9-26 -->
-
-    <section class="content">
+    <section style="text-align: center;">
+        <h2 ca>Logged Expenses</h2>
         <div>
-            <!-- THE TABLE -->
             <table>
                 <thead>
                     <tr>
@@ -81,21 +75,18 @@
                     </tr>
                 </thead>
                 <tbody id="expense-table">
-                    <!-- Info will be injected here -->
+
                 </tbody>
             </table>
         </div>
     </section>
 
-
-    <!-- MODALS -->
-
-    <!-- ------ modal code for the add expense button ------ -->
     <div class="modal fade" id="expense-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Expense:</h1>
+                    <h3 class="modal-title fs-5" id="exampleModalLabel">Enter Expense/Credit Amount:</h3>
+                    
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -117,12 +108,37 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="expense-button" data-bs-dismiss="modal">Add
+                    <button type="button" class="btn btn-success" id="expense-button" data-bs-dismiss="modal">Add
                         Expense</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="limit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Monthly Limit Modal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="p-2" id="limit-form">
+                        <div class="mb-3">
+                            <label for="limit-input" class="form-label">Limit:</label>
+                            <input type="text" class="form-control" id="limit-input" aria-describedby="limitInput">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="limit-button" data-bs-dismiss="modal">Save
+                    changes</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -130,16 +146,20 @@
         integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
+
+
+    <footer class="mt-auto">
+        <p>Copyright 2024</p>
+        <div>
+            <i class="fa-solid fa-phone"></i>
+            <i class="fa-regular fa-envelope"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+        </div>
+        <p>Designed by: MC, ND, IF</p>
+    </footer>
+
 </body>
 
-<footer class="mt-auto">
-    <p>Copyright 2024</p>
-    <div>
-        <i class="fa-solid fa-phone"></i>
-        <i class="fa-regular fa-envelope"></i>
-        <i class="fa-brands fa-x-twitter"></i>
-    </div>
-    <p>Designed by: MC, ND, IF</p>
-</footer>
+
 
 </html>

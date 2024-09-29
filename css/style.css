@@ -1,7 +1,25 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
+
+
+
+.mm-logo-gradient {
+    color: linear-gradient(to right, #009900, #006e00);
+}
+
+.mm-light-green {
+    color: #009900;
+
+
+}
+
+.mm-dark green {
+    color: #006e00;
+}
+
 
 body {
     background-color: rgb(192, 168, 145);
@@ -9,6 +27,14 @@ body {
     background-repeat: no-repeat;
 }
 
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ffffffee;
+    
+    padding: 5px 7%;
+    color: #bbb;
+  }
 
  .nav-bar {
     display: flex;
@@ -71,16 +97,79 @@ h1 {
     font-size: 4rem;
     display: flex;
     justify-content: center;
-    color: #fff;
+    color: #000000;
 }
 
 
-  footer {
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #ffffffee;
-    
-    padding: 5px 7%;
-    color: #bbb;
-  }
-  
+.facts-section {
+    background-color: #fff;
+    text-align: center;
+    padding: 25px 50px;
+    margin: 20px 50px 30px;
+}
+
+.facts-section h2 {
+    color: #3f3b3b;
+    font-size: 2.75rem;
+    padding-bottom: 20px;
+}
+
+.facts-section h4 {
+    font-weight: bold;
+}
+
+.question {
+    margin: 5%;
+}
+
+.faq-banner {
+    margin: 20px 50px 30px;
+    color: white;
+}
+
+.bg-img-holder {
+    background-image: url("../images/faq-model.jpg");
+    filter: grayscale(100%);
+    opacity: 50%;
+    height: 300px !important; 
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.banner-div {
+    width: 100%;
+    height: 170px;
+    padding-top: 45px;
+    text-align: center;
+    background-color: white;
+}
+
+
+
+
+
+/* Media queries */
+
+@media screen and (min-width:1300px) {
+    .facts-section {
+        background-color: #fff;
+        text-align: center;
+        padding: 15px 500px;
+        margin: 20px 150px 30px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .facts-section {
+        background-color: #fff;
+        text-align: center;
+        padding: 15px 150px;
+        margin: 20px 50px 30px;
+    }
+}
