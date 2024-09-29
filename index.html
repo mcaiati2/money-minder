@@ -43,7 +43,7 @@
             <div class="col-6 d-flex px-lg-5">
                 <button type="button" class="flex-fill py-5 btn btn-light" data-bs-toggle="modal"
                     data-bs-target="#expese-modal">
-                    Current Statement
+                    Delete Expense
                 </button>
             </div>
             <div class="col-6 d-flex px-lg-5">
@@ -92,7 +92,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Expense:</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Your Expense Amount: <p style="font-size: 15px;">If you are entering a credit amount to your account, enter a - before the number.</p></h1>
+                    
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -146,6 +147,35 @@
         </div>
     </div>
 
+     <!-- ------ modal code for the delete expense button ------ -->
+     <div class="modal fade" id="expense-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="p-2" id="expense-form">
+                        <div class="mb-3">
+                            <label for="category-input" class="form-label">Category:</label>
+                            <input type="text" class="form-control" id="category-input"
+                                aria-describedby="categoryInput">
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount-input" class="form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount-input" aria-describedby="amountInput">
+                        </div>
+                        <div class="mb-3">
+                            <label for="date-input" class="form-label">Expense Date:</label>
+                            <input type="text" class="form-control" id="date-input" aria-describedby="dateInput">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="expense-button" data-bs-dismiss="modal">Add
+                        Expense</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
