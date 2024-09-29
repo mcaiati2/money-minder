@@ -49,3 +49,45 @@ table {
   tbody tr:nth-child(even) {
     background-color: hsl(223, 64%, 90%);
   }
+
+  /* Nina */
+  .facts-section {
+    background-color: #fff;
+    text-align: center;
+    padding: 25px 50px;
+    margin: 20px 50px 30px;
+  }
+
+  .facts-section h2 {
+    font-family: "Oswald", sans-serif;
+    color: #3f3b3b;
+    font-size: 2.75rem;
+    padding-bottom: 20px;
+  }
+
+  .facts-section h4{
+    font-family: "Mulish", sans-serif;
+    font-weight: bold;
+  }
+
+  .question {
+    margin: 5%;
+  }
+
+  @media screen and (min-width:1500px) {
+    .facts-section {
+        background-color: #fff;
+        text-align: center;
+        padding: 15px 500px;
+        margin: 20px 150px 30px;
+      }
+  }
+
+  @media (max-width: 2200px) and (min-width: 1500px) {
+    .facts-section {
+        background-color: #fff;
+        text-align: center;
+        padding: 15px 150px;
+        margin: 20px 100px 30px;
+      }
+  }
