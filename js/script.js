@@ -18,7 +18,7 @@ function getTotalExpenseAmount() {
 }
 
 function addExpense() {
-   
+
 
     let expenseArray = getExpenses();
 
@@ -64,7 +64,7 @@ function addLimitAmount() {
 function calculateTotalExpenses() {
     let expenseArray = getExpenses();
 
-    // Extract amounts and convert them to numbers
+    // Extract expense amounts and convert them to numbers
     let total = expenseArray.reduce((sum, expense) => {
         return sum + parseFloat(expense.amount.replace('$', ''));
     }, 0);
@@ -72,7 +72,6 @@ function calculateTotalExpenses() {
 
     console.log(total, 'is the total amount of expenses.');
     return total;
-
 
 }
 
@@ -112,30 +111,23 @@ function showLimitAmount() {
 function showTable() {
 
     let storedExpenses = getExpenses();
-    // declares a variable named 'expenseTable' and assigns the value to the first element with the #expense-table class.
     const expenseTable = document.querySelector('#expense-table');
 
-    // clears any existing content inside the expenseTable element by setting its innerHTML property to an empty string - ensures that the table is empty before any new content is added.
     expenseTable.innerHTML = '';
 
-    // this starts a for each loop that iterates over each expense item in the array. the forEach method executes the provided function one time for every element in the array.
     storedExpenses.forEach(function (expense) {
-        // Create new table row:
         const newTableRow = document.createElement("tr");
 
-        // create new table data elements for 3 pieces of info stored in object (storedExpenses, in this case) and these will display left to right:
         const amountCell = document.createElement("td");
-        // Format the salary as currency
+
         amountCell.textContent = expense.amount;
         newTableRow.append(amountCell);
 
-        // --
 
         const categoryCell = document.createElement("td");
         categoryCell.textContent = expense.category;
         newTableRow.append(categoryCell);
 
-        // -- 
 
         const dateCell = document.createElement("td");
         dateCell.textContent = expense.date;
@@ -143,7 +135,6 @@ function showTable() {
 
         expenseTable.append(newTableRow);
 
-        // injects the HTML created above into the element named expenseTable that we declared at the top of the section. beforeend adds the HTML to the end of the existing table.
     });
     console.log('These are the current stored expenses:', storedExpenses);
 
@@ -153,10 +144,8 @@ function showTable() {
 
 /* EVENT LISTENERS */
 
-// The main buttons exist in the HTML! That's why there's no reference to them here!
-
 function initialize() {
-    dropdownBtn.addEventListener('click', function() {
+    dropdownBtn.addEventListener('click', function () {
         const dropdownMenu = document.querySelector('.dropdown-menu');
         dropdownMenu.classList.toggle('show');
     });
@@ -173,33 +162,7 @@ function initialize() {
     showTotalExpenses();
     showLimitAmount();
 
-    
+
 }
 
 initialize();
-
-
-
-
-
-    /* 
-    limitButton is the DOM element for the Save Changes button on the Adjust Monthly Limit button.
-
-    addEventListener is the method that listens for browser events
-
-    'click' event is triggered when the user clicks on the limitButton (Save Changes button on the Adjust Monthy Limit button.)
-
-    submit is doing the exact same thing but also allowing for the user to click enter.
-    */
-
-
-
-    /*
-    limitForm is the DOM element for the blank text box under 'Limit' txxt where you input the number. That is considered a form!
-
-    addEventListener is the method that listens for browser events
-
-    'submit' event is triggered when the form is submitted.
-    */
-
- 
