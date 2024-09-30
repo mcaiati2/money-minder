@@ -1,36 +1,37 @@
 const expenseForm = document.querySelector('#expense-form');
 const expenseButton = document.querySelector('#expense-button');
-const dropdownBtn = document.querySelector('#dropdown-button')
+const dropdownBtn = document.querySelector('#dropdown-button');
+
 const limitForm = document.querySelector('#limit-form');
 const limitButton = document.querySelector('#limit-button');
 const totalDisplay = document.querySelector('#total-display');
 
+// returns stored expenses list
 function getExpenses() {
     return JSON.parse(localStorage.getItem('storedExpenses')) || [];
 }
 
+// returns stored limit amount
 function getLimitAmount() {
     return JSON.parse(localStorage.getItem('storedLimitAmount')) || 0;
 }
 
+// returns total amount of stored expenses
 function getTotalExpenseAmount() {
     return JSON.parse(localStorage.getItem('storedTotalExpenses')) || 0;
 }
 
+// adds a new expense and displays the updated table and updated expense amount
 function addExpense() {
-
-
     let expenseArray = getExpenses();
 
     const categoryInput = document.querySelector('#category-input').value;
-
     const amountInput = parseFloat(document.querySelector('#amount-input').value);
-
     const dateInput = document.querySelector('#date-input').value;
 
     const expenseObject = {
         category: categoryInput,
-        amount: ('$' + amountInput),
+        amount: `$${amountInput}`,
         date: dateInput,
     };
 
@@ -44,11 +45,9 @@ function addExpense() {
 
 }
 
-
+// adds a new limit and shows the limit amount
 function addLimitAmount() {
-
     let limitAmount = getLimitAmount();
-    console.log('test: ', limitAmount);
 
     const limitInput = Number(document.querySelector('#limit-input').value);
 
@@ -61,18 +60,21 @@ function addLimitAmount() {
 
 }
 
+// calculates total of logged expenses
 function calculateTotalExpenses() {
     let expenseArray = getExpenses();
 
-    // Extract expense amounts and convert them to numbers
-    let total = expenseArray.reduce((sum, expense) => {
+    //  converts expense amounts into numbers
+    let total = expenseArray.reduce(function (sum, expense) {
         return sum + parseFloat(expense.amount.replace('$', ''));
     }, 0);
+
     localStorage.setItem('storedTotalExpenses', JSON.stringify(total));
 
-    console.log(total, 'is the total amount of expenses.');
-    return total;
+    console.log('New expense total for the month. Here is the new total: ', total);
 
+    return total;
+    
 }
 
 function showTotalExpenses() {
@@ -83,7 +85,7 @@ function showTotalExpenses() {
     displayedTotal.innerHTML = '';
 
     let displayedTotalHTML = `
-    <h3 class="total-display" style="color: #009900";>Current Monthly Expenses:
+    <h3 class="total-display" style="color: #009900">Current Monthly Expenses:
     $${storedTotalExpenses}</h3>
     `;
     displayedTotal.insertAdjacentHTML('beforeend', displayedTotalHTML);
@@ -91,7 +93,6 @@ function showTotalExpenses() {
 }
 
 function showLimitAmount() {
-
     let storedLimitAmount = getLimitAmount();
 
     let displayedLimit = document.querySelector('#limit-display');
@@ -99,17 +100,16 @@ function showLimitAmount() {
     displayedLimit.innerHTML = '';
 
     let displayedLimitHTML = `
-    <h3 class="limit-display" style="color: #006e00": >My Monthly Limit: 
+    <h3 class="limit-display" style="color: #006e00">My Monthly Limit: 
         $${storedLimitAmount}</h3>
     `;
+
     displayedLimit.insertAdjacentHTML(
         'beforeend', displayedLimitHTML);
 
 }
 
-
 function showTable() {
-
     let storedExpenses = getExpenses();
     const expenseTable = document.querySelector('#expense-table');
 
@@ -119,7 +119,6 @@ function showTable() {
         const newTableRow = document.createElement("tr");
 
         const amountCell = document.createElement("td");
-
         amountCell.textContent = expense.amount;
         newTableRow.append(amountCell);
 
@@ -128,19 +127,16 @@ function showTable() {
         categoryCell.textContent = expense.category;
         newTableRow.append(categoryCell);
 
-
         const dateCell = document.createElement("td");
         dateCell.textContent = expense.date;
         newTableRow.append(dateCell);
 
         expenseTable.append(newTableRow);
-
     });
+
     console.log('These are the current stored expenses:', storedExpenses);
 
 }
-
-
 
 /* EVENT LISTENERS */
 
@@ -153,16 +149,14 @@ function initialize() {
     expenseForm.addEventListener('submit', addExpense);
     expenseButton.addEventListener('click', addExpense);
 
-
     limitForm.addEventListener('submit', addLimitAmount);
     limitButton.addEventListener('click', addLimitAmount);
 
     $('#date-input').datepicker();
+
     showTable();
     showTotalExpenses();
     showLimitAmount();
-
-
 }
 
 initialize();
