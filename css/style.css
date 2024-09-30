@@ -4,8 +4,6 @@ body {
     margin: 0;
 }
 
-
-
 .mm-logo-gradient {
     color: linear-gradient(to right, #009900, #006e00);
 }
@@ -54,16 +52,10 @@ footer {
 }
 
 table {
-<<<<<<< HEAD
     background-color: #fff;
     width:65%;
     margin: auto;
     justify-content: center;
-=======
-    margin: auto;
-    width:80%;
-    align-items: center;
->>>>>>> main
     border-spacing: 0;
     border-collapse: collapse;
     color: #000000;
@@ -75,7 +67,6 @@ table {
     border:2px solid black;
   }
   
-<<<<<<< HEAD
 
 .container {
     display: flex;
@@ -158,9 +149,6 @@ h1 {
 }
 
 
-
-
-
 /* Media queries */
 
 @media screen and (min-width:1300px) {
@@ -180,13 +168,3 @@ h1 {
         margin: 20px 50px 30px;
     }
 }
-=======
-  tbody tr {
-    background-color: hsl(0, 0%, 95%);
-  }
-  
-  th {
-    color: white;
-    text-align: center;
-  }
->>>>>>> main
